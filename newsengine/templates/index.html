@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Korea Herald News Search Engine</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/AdminLTE.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/_all-skins.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/common.css')}}">
+
+</head>
+<body>
+
+    <div style="text-align:right; margin:30px 70px 0px 0px;">
+      {% block content %}
+      {% if 'user_id' in session and session['user_id'] != None: %}
+      <div class="top-bar">
+        <span class="" style="margin-right:30px"><a href="queryHistory">검색히스토리</a></span>
+        <span class="" style="margin-right:30px"><a href="logout">로그아웃</a></span>
+      </div>
+      {% else %}
+      <div class="top-bar">
+        <span class="" style="margin-right:30px"><a href="login">로그인</a></span>
+        <span class="" style="margin-right:30px"><a href="signUp">회원가입</a></span>
+      </div>
+      {% endif %}
+      {% endblock content %}
+    </div>
+
+
+
+    <div id="logo">
+      <a href="/"><img src="{{ url_for('static', filename='image/logo.png')}}"></a>
+    </div>
+    <form action="search" method="GET">
+      <div id="queryBar" style="margin-top:20px;">
+        {% if error %}
+            <p class=error><strong>Error:</strong> {{ error }}
+        {% endif %}
+        <div class="wrapper">
+            <!--<span class="">검색어</span>-->
+            {% if request.args.get('query') != None %}
+            <input type="text" class="inputQuery" name="query" id="query" aria-describedby="basic-addon3" value="{{ request.args.get('query') }}">
+            {%else%}
+            <input type="text" class="inputQuery" name="query" id="query" aria-describedby="basic-addon3" value="">
+            {% endif %}
+
+            <input type="submit" value="검색" class="btn btn-default submitBtn">
+        </div>
+      </div>
+    </form>
+
+
+</body>
+</html>

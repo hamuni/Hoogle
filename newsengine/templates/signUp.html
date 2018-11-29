@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>회원가입</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <script src="{{url_for('static', filename='js/bootstrap.min.js')}}"></script>
+</head>
+<body>
+    <div class="container" style="margin-top:50px;">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <form action="signUpUser" method="POST">
+                    {% if error %}
+                        <p class=error><strong>Error:</strong> {{ error }}
+                    {% endif %}
+                    <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon3">ID</span>
+                        <input type="text" class="form-control" name="user_id" id="user_id" aria-describedby="basic-addon3">
+                    </div>
+                    <br>
+                    <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon3">Password</span>
+                        <input type="password" class="form-control" id="password" name="password" aria-describedby="basic-addon3">
+                    </div>
+                    <br>
+                    <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon3">Password 재입력</span>
+                        <input type="password" class="form-control" id="passwordConfirm" name="passwordConfirm" aria-describedby="basic-addon3">
+                    </div>
+                    <br>
+                    <input type="submit" value="회원가입" class="btn btn-default btn-sm">
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

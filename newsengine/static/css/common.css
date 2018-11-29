@@ -1,0 +1,109 @@
+@charset "UTF-8";
+
+#searchResult {
+  margin: 50px 70px;
+}
+
+#searchResult>.resultRow {
+	margin: 10px 50px;
+	margin-left: 20%;
+	border-radius: 5px;
+	border: 1px solid #EAEAEA;
+	padding: 20px;
+	width: 60%;
+}
+
+#searchResult>.resultRow>.title {
+	font-size: 20px;
+	font-weight: 600;
+	overflow: hidden;
+	height: 30px;
+	margin: 0 0 10px 0;
+}
+
+#searchResult>.resultRow>.publishingDate {
+	margin: 8px 0;
+}
+
+#searchResult>.resultRow>.article {
+	overflow: hidden;
+  height: 60px;
+}
+
+#queryBar>div.wrapper {
+	margin-left: 30%;
+}
+
+#queryBar>div.wrapper>.inputQuery {
+	border-radius: 0;
+  position: relative;
+  z-index: 2;
+  width: 50%;
+  height: 40px;
+  margin-bottom: 0;
+  box-shadow: none;
+  border-color: #d2d6de;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #555;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+}
+
+#queryBar>div.wrapper>.submitBtn {
+	background-color: #f4f4f4;
+  color: #444;
+  border-color: #ddd;
+	padding: 8px 23px;
+  font-size: 15px;
+}
+
+#logo {
+	margin-top:30px;
+	text-align:center;
+}
+
+
+#queryHistoryList {
+  margin-top: 70px;
+}
+
+#queryHistoryList > .queryHistoryRow {
+	margin: 10px 50px;
+	margin-left: 25%;
+	border-radius: 5px;
+	border: 1px solid #EAEAEA;
+	padding: 10px;
+	width: 50%;
+}
+
+#queryHistoryList > .queryHistoryRow>.query {
+	font-size: 18px;
+	font-weight: 600;
+	margin: 0 0 10px 0;
+	display: inline-block;
+	width:83%;
+}
+
+#queryHistoryList > .queryHistoryRow > .regDate {
+	margin: 8px 0;
+	text-align: right;
+	display: inline-block;
+}
+
+.returnBtn {
+  color: #444;
+  border-color: #ddd;
+	padding: 8px 23px;
+  font-size: 15px;
+	float: right;
+  margin-right: 25%;
+}
+
+#loginBox {
+  margin-left: 30%;
+  width: 35%;
+
+}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Korea Herald News Search Engine</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/AdminLTE.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/_all-skins.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/common.css')}}">
+
+</head>
+<body>
+
+
+
+  <div style="text-align:right; margin:30px 70px 0px 0px;">
+    {% block content %}
+    {% if session['user_id'] == None %}
+    <div class="top-bar">
+      <span class="" style="margin-right:30px"><a href="login">로그인</a></span>
+      <span class="" style="margin-right:30px"><a href="signUp">회원가입</a></span>
+    </div>
+    {% else %}
+    <div class="">
+      <span class="" style="margin-right:30px"><a href="queryHistory">검색히스토리</a></span>
+      <span class="" style="margin-right:30px"><a href="logout">로그아웃</a></span>
+    </div>
+    {% endif %}
+    {% endblock content %}
+  </div>
+
+
+  <div class="queryHistoryList" id="queryHistoryList">
+    {% block list %}
+    {% if data|length == 0 %}
+    <div class="queryHistoryRow">
+      <div class="query">검색 내역이 존재하지 않습니다.</div>
+    </div>
+    {% else %}
+      {% for queryHistory in data %}
+      <div class="queryHistoryRow">
+        <div class="query">{{ queryHistory['query'] }}</div>
+        <div class="regDate">{{ queryHistory['reg_date'] }}</div>
+      </div>
+      {% endfor %}
+    {% endif %}
+    {% endblock list %}
+  </div>
+
+  <div class="returnBtn">
+    <input type="button" value="돌아가기" class="btn btn-default" onClick="location.href='/'"
+  </div>
+
+</body>
+</html>
